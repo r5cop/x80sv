@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+
+<launch>
+
+  <group ns="jaguar">
+
+      <!-- lidar iface -->
+      <node pkg="hokuyo_node" type="hokuyo_node" name="hokuyo_node">
+          <param name="port" value="/dev/ttyS51"/>
+      </node>
+    
+      <!-- interfacing dr robot -->
+      <node pkg="drrobot_jaguar4x4_player" type="drrobot_jaguar4x4_player_node" name="drrobot_jaguar_player_node" output="screen" >
+        <remap from="drrobot_cmd_vel" to="cmd_vel"/>
+        <rosparam command="load" file="$(find drrobot_jaguar4x4_player)/param/drrobot_jaguar4x4.yaml" />
+      </node>
+  
+    <group ns="static_tf_publishers">
+
+      <!-- tf base_footprint to base_link -->
+      <node pkg="tf" type="static_transform_publisher" name="base_footprint_2_base_link" args="0 0 0 0 0 0 /base_footprint /base_link 100"/> 
+
+      <!-- tf base to laser -->
+      <node pkg="tf" type="static_transform_publisher" name="base_frame_2_laser_link" args="0.03 0 0.08 0 0 0 /base_link /laser 100"/> 
+  
+    </group>
+  
+    <!-- Environment description -->
+    <node output="screen" pkg="ed" type="ed" name="ed" args="$(find drrobot_jaguar4x4_player)/param/ed_jaguar_standalone.yaml" /> 
+    <node pkg="ed_gui_server" type="ed_rviz_publisher" name="ed_rviz_publisher" /> 
+    <node 
+
+  </group>
+  
+</launch>

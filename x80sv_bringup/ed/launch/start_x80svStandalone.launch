@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+
+<launch>
+
+  <group ns="x80sv">
+    
+      <!-- interfacing dr robot -->
+     <!-- <include file="$(find x80sv_bringup)/launch/real/real_robot_driver.launch"/> -->
+    
+    <!-- Environment description -->
+    <node output="screen" pkg="ed" type="ed" name="ed" args="$(find x80sv_bringup)/ed/param/ed_x80sv_standalone.yaml" /> 
+    <node pkg="ed_gui_server" type="ed_rviz_publisher" name="ed_rviz_publisher" /> 
+
+  </group>
+  
+</launch>

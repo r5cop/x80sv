@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+
+<launch>
+
+  <group ns="x80sv">
+    
+      <!-- interfacing dr robot -->
+     <!-- <include file="$(find x80sv_bringup)/launch/real/real_robot_driver.launch"/> -->
+    
+    <!-- Environment description -->
+    <node output="screen" pkg="ed" type="ed" name="ed" args="$(find x80sv_bringup)/ed/param/tue.yaml" /> 
+
+  </group>
+
+  <group ns="amigo">
+    <node output="screen" pkg="multirobot_communication" type="ed_client_bridge.py" name="ed">
+        <param name="ip" value="192.168.2.91" />
+        <param name="port" value="6000" />
+    </node>
+  </group>
+
+    <node output="screen" pkg="multirobot_communication" type="trigger_server.py" name="trigger_server">
+        <param name="ip" value="192.168.2.249" />
+        <param name="port" value="6001" />
+        <param name="robot_name" value="x80sv" />
+    </node>
+
+  
+</launch>

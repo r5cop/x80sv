@@ -1,0 +1,11 @@
+<launch>
+
+    <!-- joypad node: -->
+		<node name="joypad_node" pkg="joy" type="joy_node" output="screen" >
+		<param name="joy_node/dev_" value="/dev/input/js1" />
+		</node>
+	<!-- joypad teleop node: -->
+		<node name="joypad_teleop_node" pkg="x80sv_driver" type="x80sv_joystick_teleop" output="screen"/>
+
+</launch>
+

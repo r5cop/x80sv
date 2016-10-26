@@ -25,7 +25,8 @@ if __name__ == '__main__':
 
     mode = 'square'
     # square = [(0,5), (5,5), (5, 0), (5,-5), (0, -5), (-5,-5), (-5, 0), (-5,5)]
-    square = [(5,5), (5,-5), (-5,-5), (-5,5)]
+   # square = [(5,5), (5,-5), (-5,-5), (-5,5)]
+    square = [(0.51,0.51), (0.51,-0.51), (-0.51,-0.51), (-0.51,0.51)]
     squares = next_square(square)
     while True:
         goal = MoveBaseGoal()

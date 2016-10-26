@@ -5,9 +5,9 @@ project(x80sv_navigation)
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED
-move_base
-dwa_local_planner
-global_planner
+#move_base
+#dwa_local_planner
+#global_planner
 gmapping
 )
 
