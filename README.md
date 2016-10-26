@@ -1,6 +1,3 @@
-x80sv
-=====
-
 Container for x80sv description, simulation and drivers
 
 
